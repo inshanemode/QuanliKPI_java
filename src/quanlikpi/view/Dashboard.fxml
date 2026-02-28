@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quanlikpi.presenter.DashboardPresenter">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" style="-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Employee KPI Dashboard" textFill="BLACK">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="lblWelcome" text="Welcome, User!" />
+                  <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+          <children>
+            <HBox alignment="CENTER_LEFT">
+                <children>
+                    <Label text="My KPIs for current cycle:">
+                        <font>
+                            <Font name="System Italic" size="14.0" />
+                        </font>
+                    </Label>
+                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                        <children>
+                            <Label fx:id="lblTotalScore" text="Total Score: 0" textFill="#2c3e50">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                </children>
+            </HBox>
+            <TableView fx:id="tblKPIs" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colName" prefWidth="200.0" text="KPI Name" />
+                <TableColumn fx:id="colTarget" prefWidth="100.0" text="Target" />
+                <TableColumn fx:id="colActual" prefWidth="100.0" text="Actual" />
+                <TableColumn fx:id="colUnit" prefWidth="80.0" text="Unit" />
+                <TableColumn fx:id="colWeight" prefWidth="80.0" text="Weight (%)" />
+                <TableColumn fx:id="colScore" prefWidth="80.0" text="Score" />
+                <TableColumn fx:id="colAssignedTo" prefWidth="120.0" text="Assigned To" />
+                <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="60.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleAddKPI" prefWidth="100.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Add KPI" />
+            <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleEditKPI" prefWidth="100.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="Edit KPI" />
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleDeleteKPI" prefWidth="100.0" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Delete KPI" />
+         </children>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
