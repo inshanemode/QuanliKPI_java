@@ -6,15 +6,14 @@ import java.sql.SQLException;
 
 public class SQLConnection {
     // Database connection parameters
-    private static final String SERVER_NAME = "localhost";
-    private static final String INSTANCE_NAME = "SQLEXPRESS";
+    private static final String SERVER_NAME = "SHANE";
+    private static final String INSTANCE_NAME = ""; // Default instance
     private static final String DATABASE_NAME = "KPI_Management";
     
     // JDBC URL for Windows Authentication
     // Using instanceName= instead of backslash in hostname can be more reliable
     private static final String CONNECTION_URL = 
         "jdbc:sqlserver://" + SERVER_NAME + ";" +
-        "instanceName=" + INSTANCE_NAME + ";" +
         "databaseName=" + DATABASE_NAME + ";" +
         "integratedSecurity=true;" +
         "encrypt=true;" +
